@@ -1,0 +1,137 @@
+🧩 1️⃣ What is Serializable interface?
+
+✅ Definition:
+Serializable is a marker interface in java.io package.
+It doesn’t have any methods — it simply tells the JVM that this class’s objects are allowed to be converted into a byte stream (so they can be saved to a file or sent over a network).
+
+class Student implements Serializable {
+    // no methods to override
+}
+
+
+📘 Why needed?
+If you try to serialize an object of a class that doesn’t implement Serializable, Java throws:
+
+java.io.NotSerializableException
+
+🧩 2️⃣ Methods of FileWriter and FileReader
+FileWriter
+
+Used to write text data (characters) to a file.
+
+Method	Description
+write(String str)	Writes a string to the file
+write(char[] cbuf)	Writes an array of characters
+write(int c)	Writes a single character
+append(String str)	Appends text to an existing file
+flush()	Forces data from buffer to file
+close()	Closes the writer and releases resources
+
+Example:
+
+FileWriter fw = new FileWriter("data.txt", true); // true = append mode
+fw.write("Hello World\n");
+fw.flush();
+fw.close();
+
+FileReader
+
+Used to read text data (characters) from a file.
+
+Method	Description
+read()	Reads one character (returns int ASCII value or -1 for EOF)
+read(char[] cbuf)	Reads multiple characters into an array
+close()	Closes the reader
+
+Example:
+
+FileReader fr = new FileReader("data.txt");
+int ch;
+while ((ch = fr.read()) != -1) {
+    System.out.print((char) ch);
+}
+fr.close();
+
+🧩 3️⃣ What is BufferedReader and why we pass FileReader to it?
+
+✅ BufferedReader
+
+A wrapper around FileReader that reads data faster using an internal buffer.
+
+It also provides a convenient method: readLine() → reads one full line at a time.
+
+📘 Why pass FileReader to it?
+Because BufferedReader needs a source to read from — it doesn’t directly open files.
+
+So we connect them like this:
+
+BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+
+
+Here:
+
+FileReader → knows where to read (the file)
+
+BufferedReader → knows how to read efficiently (buffered)
+
+You can also chain them further if needed — this is called stream chaining.
+
+🧩 4️⃣ What is ObjectOutputStream and FileOutputStream, and why pass one into another?
+
+✅ FileOutputStream
+
+Writes raw bytes to a file.
+
+Example: new FileOutputStream("student.ser")
+
+✅ ObjectOutputStream
+
+Converts a Java object → byte stream and then writes it.
+
+It needs a destination to send those bytes → so we pass the FileOutputStream to it.
+
+📘 Together:
+
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.ser"));
+oos.writeObject(student);
+oos.close();
+
+
+👉 ObjectOutputStream serializes the object
+👉 FileOutputStream writes that serialized data to the file.
+
+🧩 5️⃣ Same for FileInputStream and ObjectInputStream
+
+✅ FileInputStream
+
+Reads raw bytes from a file (opposite of FileOutputStream).
+
+✅ ObjectInputStream
+
+Converts the byte stream back into a Java object (Deserialization).
+
+It needs a source of bytes → we pass FileInputStream.
+
+📘 Together:
+
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.ser"));
+Student s2 = (Student) ois.readObject();
+ois.close();
+
+🧩 6️⃣ More Common Methods (for extra depth)
+🔸 ObjectOutputStream
+Method	Description
+writeObject(Object obj)	Serializes and writes an object
+flush()	Forces writing any buffered data
+close()	Closes the stream
+🔸 ObjectInputStream
+Method	Description
+readObject()	Reads and deserializes the next object
+close()	Closes the stream
+available()	(inherited from InputStream) tells how many bytes available
+🔸 BufferedReader
+Method	Description
+read()	Reads a single character
+readLine()	Reads one full line of text
+ready()	Checks if stream is ready to be read
+close()	Closes the stream

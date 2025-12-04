@@ -12,13 +12,44 @@ public class StringBuilderClass
 {
   public static void main(String[] args)
   {
-  // we are use to stringbuilder class because of 
-  //    * it will also create string
-  //    * it not use intering that means every String has theior own address
-  //    * also String builder calss is remove immutability thats means we are change the
-  //      character of string without reassign them. like arrays set method
-  //    * string has poor porformance but String builder has high performance
-      
+      // We use the StringBuilder class because:
+      // * It is used to create and modify strings.
+      // * It does not use string interning, which means every StringBuilder object has its own memory location.
+      // * StringBuilder removes immutability, which means we can change the characters of the string
+      // without reassigning it, just like we use methods on arrays.
+      // * String has poor performance when modified repeatedly, but StringBuilder provides better performance.
+
+        // Difference between StringBuilder and StringBuffer in Java
+        //
+        // 1) Thread Safety:
+        //    - StringBuilder is NOT thread-safe.
+        //    - StringBuffer is thread-safe.
+        //
+        // 2) Performance:
+        //    - StringBuilder is faster because it does not use synchronization.
+        //    - StringBuffer is slower due to synchronized methods.
+        //
+        // 3) Synchronization:
+        //    - StringBuilder does NOT perform synchronization.
+        //    - StringBuffer performs synchronization internally.
+        //
+        // 4) Use Case:
+        //    - Use StringBuilder in a single-threaded environment.
+        //    - Use StringBuffer in a multi-threaded environment.
+        //
+        // 5) Mutability:
+        //    - Both StringBuilder and StringBuffer are mutable (they can be modified).
+        //
+        // 6) Java Version:
+        //    - StringBuilder was introduced in Java 1.5.
+        //    - StringBuffer was introduced in Java 1.0.
+        //
+        //
+        // Interview One-liner:
+        // Use StringBuilder for better performance in single-threaded programs
+        // and StringBuffer when thread safety is required.
+
+
       StringBuilder str = new StringBuilder("hello");
       str.append(" madhav");
       System.out.println(str);
@@ -38,7 +69,5 @@ public class StringBuilderClass
       System.out.println(str1);
       str1.reverse();
       System.out.println(str1);
-      
-      
   }        
 }

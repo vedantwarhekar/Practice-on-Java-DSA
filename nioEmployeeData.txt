@@ -1,0 +1,2 @@
+Java NIO makes file handling easier!
+We can write and read files in one line.

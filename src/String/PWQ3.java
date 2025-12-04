@@ -19,7 +19,7 @@ public class PWQ3
       for(int i=0;i<str.length();i++)
       {
           char ch = str.charAt(i);
-          boolean flag = true; // cosider the char is uppercase
+          boolean flag = true; // consider the char is uppercase
           int ascii = (int)ch;
           if(ch == ' ') continue;
           if(ascii >= 97) flag = false;
