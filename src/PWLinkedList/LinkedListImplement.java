@@ -31,7 +31,7 @@ public class LinkedListImplement
         if(head == null) // empty list
         {
             head = temp;
-        }else{ // non empty list
+        }else{ // non-empty list
            tail.next = temp; 
         }
         // we need to point temp as our new tail

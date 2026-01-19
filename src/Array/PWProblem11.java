@@ -40,7 +40,7 @@ public class PWProblem11 {
            } 
         }
         for (int m : arr) {
-            System.out.print(arr[m] + " ");
+            System.out.print(m + " ");
         }
         System.out.println();
     }        

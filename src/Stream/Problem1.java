@@ -3,7 +3,7 @@ package Stream;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-// reverse the string
+// reverse each word in string
 public class Problem1 {
     public static void main(String[] args) {
         String str = "This is Java Programming";
@@ -11,5 +11,6 @@ public class Problem1 {
                 .map(w -> new StringBuilder(w).reverse().toString())
                 .collect(Collectors.joining(" "));
         System.out.println(reverse);
+
     }
 }
