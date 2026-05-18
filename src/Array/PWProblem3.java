@@ -24,48 +24,47 @@ public class PWProblem3 {
 //        }
 //        System.out.println(list);
 
-        // 3rd Logic
-//        int[] ans = new int[arr.length];
-//        int uniqueCount = 0;
-//        for(int i = 0; i < arr.length; i++)
-//        {
-//            boolean isDuplicate = false;
-//
-//            for(int j =0; j < uniqueCount;j++)
-//            {
-//                if(arr[i] == ans[j])
-//                {
-//                    isDuplicate = true;
-//                    break;
-//                }
-//            }
-//
-//            if(!isDuplicate)
-//            {
-//                ans[uniqueCount++] = arr[i];
-//            }
-//        }
-//
-//        for(int i = 0; i < uniqueCount; i++)
-//        {
-//            System.out.print(ans[i]+" ");
-//        }
-//        System.out.println();
+  //       3rd Logic
+        int uniqueCount = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            boolean isDuplicate = false;
+
+            for(int j =0; j < uniqueCount;j++)
+            {
+                if(arr[i] == arr[j])
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if(!isDuplicate)
+            {
+                arr[uniqueCount++] = arr[i];
+            }
+        }
+
+        for(int i = 0; i < uniqueCount; i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
 
         // 4th logic
-        boolean[] seen = new boolean[101]; // assuming element from 0 -100;
-        int result[] = new int[arr.length];
-        int index = 0;
-        for(int num : arr)
-        {
-           if(!seen[num])
-           {
-               seen[num] = true;
-               result[index++] = num;
-           }
-        }
-        for (int i = 0; i < index; i++) {
-            System.out.print(result[i] + " ");
-        }
+//        boolean[] seen = new boolean[101]; // assuming element from 0 -100;
+//        int result[] = new int[arr.length];
+//        int index = 0;
+//        for(int num : arr)
+//        {
+//           if(!seen[num])
+//           {
+//               seen[num] = true;
+//               result[index++] = num;
+//           }
+//        }
+//        for (int i = 0; i < index; i++) {
+//            System.out.print(result[i] + " ");
+//        }
     }
 }

@@ -6,13 +6,12 @@ class Q1
 {
   public static void main(String[] args)
   {
-     Scanner sc= new Scanner(System.in);
-     System.out.println("Entre a hexadecimal value");
-     String hex = sc.nextLine();
-     
-     int decimal = Integer.parseInt(hex,16);
+      int n = 5;
+      int factorial = 1;
+      for (int i =1; i <= n; i++){
+          factorial = factorial * i;
+      }
+      System.out.println(factorial);
 
-     System.out.println("the decimal value is " + decimal);
- 
   }
 }

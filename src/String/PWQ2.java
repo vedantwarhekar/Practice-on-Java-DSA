@@ -15,7 +15,7 @@ public class PWQ2
     {
        String str = "PhySiCS";
  //you can directly convert the string into StringBuilder than u can solve it like PWQ3
- //      StringBuilder str1 = new StringBuilder(str);                
+ //    StringBuilder str1 = new StringBuilder(str);
        System.out.print(str + "-> ");
        for(int i =0;i<str.length();i++)
        {

@@ -1,7 +1,6 @@
 package Array;
 
 // find the second larget element in array
-
 public class PWProblem1 {
     public static void main(String[] args) {
         int[] arr = {10, 5, 8, 20, 15};

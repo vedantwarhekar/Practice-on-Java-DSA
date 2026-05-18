@@ -1,6 +1,7 @@
 package HashMap;
 //Question (Isomorphic Strings):
-//Given two strings s and t, determine whether they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t, with a one-to-one mapping (no two characters map to the same character).
+//Given two strings s and t, determine whether they are isomorphic. Two strings are isomorphic if the characters
+// in s can be replaced to get t, with a one-to-one mapping (no two characters map to the same character).
 //
 //Example:
 //

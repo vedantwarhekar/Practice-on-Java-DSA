@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Array;
-
 /**
  * given an integers it may be positive and negative arrange this array by
  * the square of all integers placed in assending order.

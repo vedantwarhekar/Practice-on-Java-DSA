@@ -4,6 +4,7 @@
  */
 package Array;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -19,16 +20,21 @@ public class PWProblem18
       Scanner sc = new Scanner(System.in);
       int[] arr = {26,10,26,10,26};
       int num = sc.nextInt();
-      int count = 0;
-      for(int i=0;i<arr.length;i++)
-      {
-          
-          if(arr[i] == num)
-          {
-             count++;
-          }    
-          
-      }   
-      System.out.println(count);
+       HashMap<Integer,Integer> map = new HashMap<>();
+//      int count = 0;
+//      for(int i=0;i<arr.length;i++)
+//      {
+//
+//          if(arr[i] == num)
+//          {
+//             count++;
+//          }
+//
+//      }
+       for(int i =0; i < arr.length; i++){
+           map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+       }
+
+      System.out.println(map.get(num));
    }        
 }

@@ -4,6 +4,8 @@
  */
 package Array;
 
+import java.util.HashMap;
+
 /**
  *  find the total number of pairs in arrays who's sum is equal to the give value 7
  * @author Administrator
@@ -16,16 +18,25 @@ public class PWProblem
        int num = 7;
        int answer =0;
        
-       for(int i=0;i<arr.length;i++)
-       {
-          for(int j=i+1;j<=arr.length-1;j++) 
-          {
-             if(arr[i]+arr[j]== num)
-             {
-                answer++;
-             }    
-          }    
-       }
-       System.out.println(answer);
+//       for(int i=0;i<arr.length;i++)
+//       {
+//          for(int j=i+1;j<=arr.length-1;j++)
+//          {
+//             if(arr[i]+arr[j]== num)
+//             {
+//                answer++;
+//             }
+//          }
+//       }
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < arr.length; i++){
+            int needed = num - arr[i];
+            if(map.containsKey(needed)){
+                System.out.println(map.get(needed)+" "+ i);
+                break;
+            }
+            map.put(arr[i],i);
+        }
     }        
 }

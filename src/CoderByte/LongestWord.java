@@ -16,7 +16,7 @@ public class LongestWord
 {
     public static String LongestWord1(String sen)
     {
-       String[] senAr = sen.split("[^a-z^A-Z]");
+       String[] senAr = sen.split(" ");
        int longestLength = 0;
        String result = "";
        for(int i=0;i<senAr.length;i++)

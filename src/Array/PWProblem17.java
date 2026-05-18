@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Array;
+import java.util.HashSet;
 import java.util.Scanner;
 /**
  *  Q1 - Given an array sorted in increasing order of size n and an integer x, 
@@ -17,16 +18,13 @@ public class PWProblem17
         Scanner sc = new Scanner(System.in);
         int[] arr = {5,10,15,20,26};
         int x = sc.nextInt();
-        for(int i=0;i<arr.length;i++)
-        {
-           for(int j=i+1;j<arr.length;j++)
-           {
-               if(arr[j]-arr[i]==x)
-               {
-                  System.out.println(arr[j]+"-"+arr[i]+" = yes");
-                  break;
-               }    
-           }    
-        }    
+        HashSet<Integer> set = new HashSet<>();
+        for(int num : arr){
+            if(set.contains(num-x) || set.contains(num+x)){
+                System.out.println("true");
+                break;
+            }
+            set.add(num);
+        }
     }        
 }
