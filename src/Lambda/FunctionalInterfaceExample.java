@@ -31,6 +31,6 @@ public class FunctionalInterfaceExample {
     // we can remove the {} brackets as well if there is only one command and return statement
     Calculator multiply = (a,b) -> a * b;
 
-   // and if there is only one parameter that we can remove () this as well
+   // and if there is only one parameter than we can remove () this as well
     // Print pl = str -> System.out.println(str);
 }
