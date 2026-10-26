@@ -1,0 +1,32 @@
+Builder Design Pattern — Short Recap
+What is Builder Pattern?
+The Builder Design Pattern is a creational design pattern used to create complex objects
+step by step.
+
+It is useful when a class has many fields/parameters, especially when some are optional.
+
+Why use Builder Pattern?
+Makes object creation easier to read.
+Avoids constructors with many parameters.
+Allows setting only the required fields.
+Supports method chaining.
+Keeps the final object separate from the object-creation process.
+Can help create immutable objects.
+What your User class is doing
+
+Your User class represents the actual object that you want to create.
+
+User contains the final data: userId, userName, and emailId.
+Its constructor is private, so users cannot directly create a User object.
+UserBuilder is responsible for collecting all the required values.
+Each setter adds a value and returns the same builder, which enables chaining.
+builder() provides a convenient way to create a new builder.
+build() takes the collected values from the builder and creates the final User object.
+User has only getters, not setters, so once created, its values cannot be changed.
+Simple flow to remember
+
+Builder → Collect values → Configure object → Build → Final User object
+
+Key interview point
+Builder Pattern separates the construction of an object from the object itself and allows the
+object to be created step by step

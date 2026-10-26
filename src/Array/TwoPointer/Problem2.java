@@ -12,7 +12,7 @@ package Array.TwoPointer;
 //Input: nums = [0]
 //Output: [0]
 
-public class Problem2 extends Problem1 {
+public class Problem2 extends EasyProblem2 {
 
     public static void moveZeroes(int[] nums) {
         int j = 0;

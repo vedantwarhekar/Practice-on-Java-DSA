@@ -1,0 +1,44 @@
+Reminder: Singleton Design Pattern
+
+1) Make the constructor private so that objects of the class cannot be created directly
+from outside the class.
+
+2) Create a method to return the object
+Since the constructor is private, we cannot create an object using the new keyword from
+outside the class. We need a method that creates and returns the object.
+This method should be static, because we need to access it without creating an object first.
+A normal (non-static) method cannot be called without an object.
+
+
+3) Create a static variable to store the object
+Create a variable to hold the single instance of the class.
+This variable should also be static, because the static method needs to access it.
+Inside the static method, check whether the variable is null.
+If it is null, create a new object and assign it to the variable.
+Then return the object through the method.
+If the variable is not null, simply return the existing object.
+
+example :- refer class "Example1"
+
+Example1 -> Lazy Loading object create only when it is required
+Example2 -> Edger Creates it automatically and save
+
+Still there is a problem in Example1 what if two Thread Try to access it that's why
+we have to create object in synchronized block
+
+============================================================================================
+Ways To Break SingleTon Pattern
+
+1) Reflection Api To break Singleton pattern
+Solution:- 1) if object is there inside a variable than throw exception from constructor.
+           2) use enum which disable the use of Reflection api(Example3.class.getDeclaredConstructor())
+
+2) Deserialization
+Solution:- 1) implementing readresolve method
+
+3) Cloning
+Solution     @Override
+             public Object clone() throws CloneNotSupportedException{
+                 // return the variable which was storing the object
+                 return exp;
+             }

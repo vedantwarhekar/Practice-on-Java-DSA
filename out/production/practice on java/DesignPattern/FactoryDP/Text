@@ -1,0 +1,45 @@
+Factory Design Pattern — Short Revision
+1. What is Factory DP?
+Factory Design Pattern is a Creational Design Pattern used to create objects without exposing
+the object-creation logic to the client.
+Factory = Responsible for creating objects.
+
+2. In our example
+We have:
+Employee → Interface
+AndroidDeveloper → Implements Employee
+WebDeveloper → Implements Employee
+EmployeeFactory → Creates the required employee object
+Main → Client that uses the factory
+
+3. Flow
+        Main
+          ↓
+    EmployeeFactory
+          ↓
+ ┌─────────────────────┐
+ │ Employee type?      │
+ └─────────────────────┘
+      ↓          ↓
+ Android      Web Developer
+Developer
+
+For example:
+Employee emp = EmployeeFactory.getEmployee("ANDROID DEVELOPER");
+The Main class doesn't create: new AndroidDeveloper();
+Instead, it asks the factory: EmployeeFactory.getEmployee(...)
+The factory decides which object to create:
+
+if (...) {
+    return new AndroidDeveloper();
+}else if (...) {
+    return new WebDeveloper();
+}
+
+4. Main advantage
+Without Factory:
+Employee emp = new AndroidDeveloper();
+The client is directly dependent on the concrete class.
+With Factory:
+Employee emp = EmployeeFactory.getEmployee("ANDROID DEVELOPER");
+Object creation is centralized inside EmployeeFactory.

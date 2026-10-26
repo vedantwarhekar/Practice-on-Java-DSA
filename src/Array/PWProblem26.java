@@ -1,6 +1,7 @@
 package Array;
 /*
 Problem Sort the Colors
+
 Example 1:
 Input: nums = [2,0,2,1,1,0]
 Output: [0,0,1,1,2,2]
@@ -11,7 +12,11 @@ first, then all 1s, then all 2s.
 Example 2:
 Input: nums = [2,0,1]
 Output: [0,1,2]
+
 */
+
+
+// For Two pointer approach refer question TwoPointer.Problem5
 public class PWProblem26 {
     public static void sortColors(int[] nums) {
         int count0 = 0, count1=0, count2=0;

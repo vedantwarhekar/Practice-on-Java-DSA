@@ -1,0 +1,27 @@
+Prototype Design Pattern — Quick Recap
+
+Prototype Pattern is a creational design pattern used when creating a new object from scratch
+is expensive or time-consuming. Instead of creating and initializing a new object, we clone an
+
+existing object.
+
+Why your classes are a good example
+
+Your NetworkConnection is a suitable Prototype because:
+
+NetworkConnection represents an object whose creation involves expensive initialization.
+loadVeryImportantData() represents a costly operation, such as loading data from a database/network.
+Once the object is fully initialized, you can create another similar object using clone().
+implements Cloneable enables the object to be cloned.
+clone() acts as the mechanism for creating the new object from the existing prototype.
+Therefore, instead of repeatedly doing the expensive initialization, you can reuse an already
+prepared object as a prototype.
+
+Remember this
+Prototype = Create one expensive object → keep it as a prototype → clone it whenever a similar
+object is needed.
+
+Your example:
+NetworkConnection → expensive data loading → prototype object → clone() → new similar NetworkConnection
+
+Category: Creational Design

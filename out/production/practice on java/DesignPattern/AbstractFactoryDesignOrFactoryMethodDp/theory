@@ -1,0 +1,61 @@
+Abstract Factory — Quick Theory
+
+Purpose:
+The Abstract Factory Pattern is used to create objects without directly coupling the client
+to the concrete classes.
+
+In your example:
+
+Employee
+   ↑
+   ├── AndroidDeveloper
+   └── WebDeveloper
+
+EmployeeAbstractFactory
+   ↑
+   ├── AndroidDevFactory
+   └── WebDevFactory
+
+EmployeeFactory
+   └── getEmployee(factory)
+
+What each class does
+Class	                        Responsibility
+Employee	            Common interface for all employees
+AndroidDeveloper	    Concrete Android employee
+WebDeveloper	        Concrete Web employee
+EmployeeAbstractFactory	Defines createEmployee()
+AndroidDevFactory	    Creates AndroidDeveloper
+WebDevFactory	        Creates WebDeveloper
+EmployeeFactory	        Gives the employee object to the client
+
+Most important idea
+Instead of doing this directly: Employee e = new AndroidDeveloper();
+you do: Employee e = EmployeeFactory.getEmployee(new AndroidDevFactory());
+So the client doesn't directly create AndroidDeveloper.
+
+The creation responsibility is moved to the factory:
+
+                AndroidDevFactory
+                        ↓
+                new AndroidDeveloper()
+
+One-line memory trick 🧠
+Interface → Concrete Classes → Concrete Factories → Factory → Client
+
+Or even shorter: "Factory decides which object to create; client only asks for the object."
+
+Why your code is called Abstract Factory?
+EmployeeAbstractFactory defines the common creation method:
+
+abstract class EmployeeAbstractFactory {
+    public abstract Employee createEmployee();
+}
+
+Then each concrete factory decides which implementation to create:
+AndroidDevFactory → AndroidDeveloper
+WebDevFactory     → WebDeveloper
+Quick interview definition
+
+Abstract Factory is a creational design pattern that provides an interface for creating related
+objects without specifying their concrete classes.
