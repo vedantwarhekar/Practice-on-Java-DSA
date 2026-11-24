@@ -10,7 +10,10 @@ Why your classes are a good example
 Your NetworkConnection is a suitable Prototype because:
 
 NetworkConnection represents an object whose creation involves expensive initialization.
-loadVeryImportantData() represents a costly operation, such as loading data from a database/network.
+
+loadVeryImportantData() represents a costly operation, such as loading data from a
+database/network.
+
 Once the object is fully initialized, you can create another similar object using clone().
 implements Cloneable enables the object to be cloned.
 clone() acts as the mechanism for creating the new object from the existing prototype.
@@ -25,3 +28,20 @@ Your example:
 NetworkConnection → expensive data loading → prototype object → clone() → new similar NetworkConnection
 
 Category: Creational Design
+
+ New Concept: Shallow Copy vs Deep Copy
+
+By default, Java's `Object.clone()` performs a **shallow copy**, where reference-type fields are
+shared between the original and cloned objects. In our example, all cloned objects share the same
+`domains` list, so removing a domain from one object affects all objects.
+
+To solve this, we override `clone()` and create a new `NetworkConnection` object, copying its
+fields and elements of the `domains` list into the new object's separate list. This is called
+
+**deep copying**.
+
+**Remember this:**
+- Shallow Copy → Objects share referenced mutable data.
+- Deep Copy → Objects have independent copies of mutable data.
+
+Our example: `NetworkConnection` → `clone()` → Deep Copy → Independent `domains` lists.

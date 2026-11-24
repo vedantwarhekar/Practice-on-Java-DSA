@@ -1,0 +1,37 @@
+Observer Design Pattern — Video Upload Notification Example
+The Observer Design Pattern is a behavioral design pattern in which one object
+notifies multiple dependent objects automatically whenever its state changes.
+
+Let's understand it using a simple example: a video platform where subscribers receive
+notifications whenever a creator uploads a new video.
+
+
+1. Subscriber.java
+Role: Observer interface.
+Declares the update() method.
+Every subscriber must implement this method to receive notifications.
+
+2. UserSubscriber.java
+Role: Concrete Observer.
+Represents an individual user subscribed to a channel.
+Implements update() to display video upload notifications.
+
+3. Channel.java
+Role: Subject / Publisher.
+Maintains a list of subscribers.
+subscribe() adds a subscriber.
+unsubscribe() removes a subscriber.
+uploadVideo() simulates a video upload.
+notifySubscribers() calls update() on every registered subscriber.
+
+4. Main.java
+Role: Application entry point and demo.
+Creates the channel and subscriber objects.
+Registers subscribers, simulates uploads, and demonstrates unsubscribing.
+Key Concept
+
+The Channel does not depend on individual subscriber implementations. It depends on the
+Subscriber interface, making the system loosely coupled.
+
+When the channel's state changes (a video is uploaded), all registered observers are notified
+automatically.

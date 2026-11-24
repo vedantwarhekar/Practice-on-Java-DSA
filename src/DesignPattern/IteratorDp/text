@@ -1,0 +1,73 @@
+1. What is the Iterator Design Pattern?
+The Iterator Pattern is a behavioral design pattern that lets you access elements of a
+collection one by one without exposing how that collection stores its elements internally.
+
+Imagine you have a collection of student names:
+Aarav
+Priya
+Rahul
+Sneha
+
+You want to visit each name one at a time.
+
+Without an iterator, your code might need to know whether the names are stored in an array,
+an ArrayList, or some custom data structure
+
+Quick notes on each class
+1. StudentIterator — Iterator interface
+Defines the operations needed to traverse elements.
+
+hasNext() — checks whether another element exists.
+
+next() — returns the next element and advances the position.
+
+Remember: Defines how to traverse, not how data is stored.
+
+2. StudentCollection — Collection interface
+Defines how a client obtains an iterator.
+
+- createIterator() — provides an iterator for the collection.
+
+Remember: Defines how to get an iterator.
+
+3. StudentList — Concrete collection
+Stores the actual data.
+
+Maintains the array of student names.
+
+Implements StudentCollection.
+
+Creates and returns a StudentListIterator.
+
+Remember: Knows where the data is stored and how to create its iterator.
+
+4. StudentListIterator — Concrete iterator
+Implements the actual traversal logic.
+
+Holds a reference to the array.
+
+Maintains position, initially 0.
+
+Checks whether more elements exist.
+
+Returns the current element and increments position.
+
+Throws NoSuchElementException if next() is called after the end.
+
+Remember: Knows where we are and what comes next.
+
+5. Main — Client
+Uses the pattern.
+
+Creates the collection.
+
+Requests an iterator.
+
+Calls hasNext() and next() in a loop.
+
+Remember: Uses the iterator without accessing the array directly.
+
+6. How does the iterator actually work?
+The most important part to understand is this line:
+java
+return students[position++];

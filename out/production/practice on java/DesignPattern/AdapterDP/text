@@ -1,0 +1,48 @@
+What is the Adapter Design Pattern?
+The Adapter Pattern is a structural design pattern that allows two incompatible interfaces to
+work together.
+
+In simple words, imagine you have an existing class that does what you need, but its method names
+or interface don't match what your application expects. Instead of modifying that existing class,
+you create an Adapter that translates your application's requests into calls the existing class
+understands.
+
+Suppose your application expects every payment service to provide this method:
+Ex:- pay(int amount);
+But you've integrated an existing third-party payment gateway that provides:
+EX:- makePayment(double amount);
+
+Quick notes on each class
+1. PaymentProcessor — Target
+Defines the interface that the client expects.
+Declares pay(int amount).
+Doesn't need to know which payment gateway will handle the request.
+Revision line: Defines what the client wants to call.
+
+2. LegacyPaymentGateway — Adaptee
+The existing class that already performs the required operation.
+Provides makePayment(double amount).
+Doesn't implement the Target interface.
+Is used without modifying its source code.
+Revision line: Does the work but exposes the wrong interface.
+
+3. PaymentAdapter — Adapter
+Bridges the Target interface and the Adaptee.
+Implements PaymentProcessor.
+Holds a reference to LegacyPaymentGateway.
+Implements pay() by calling makePayment().
+Revision line: Converts the expected request into a request the existing class understands.
+
+4. Main — Client
+Uses the adapter through the Target interface.
+Creates the gateway and adapter.
+Stores the adapter in a PaymentProcessor reference.
+Calls pay(500) without directly calling makePayment().
+Revision line: Uses the Target interface without depending directly on the Adaptee.
+
+6. Understand the most important lines
+Let's look at the three lines that make the pattern work.
+Line 1: The adapter implements the Target interface.
+     code:- class PaymentAdapter implements PaymentProcessor
+This means the adapter promises to provide the methods that a PaymentProcessor
+requires. Therefore, the client can use the adapter wherever a PaymentProcessor is expected.
