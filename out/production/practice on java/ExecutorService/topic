@@ -1,0 +1,22 @@
+What is Executor Framework in Java?
+Why Executor Framework is needed
+Executor Framework hierarchy
+Executor interface explained
+ExecutorService interface and important methods
+submit(), execute(), shutdown() and related methods
+Deep dive into ThreadPoolExecutor
+Role of core pool size and maximum pool size
+Work queue inside a thread pool
+Executors utility class
+newFixedThreadPool()
+newCachedThreadPool()
+newSingleThreadExecutor()
+newScheduledThreadPool()
+ScheduledThreadPoolExecutor
+schedule() method
+scheduleWithFixedDelay() method
+BlockingQueue in ThreadPoolExecutor
+ArrayBlockingQueue
+LinkedBlockingQueue
+What happens when the queue becomes full?
+Rejection Policy in Java ThreadPoolExecutor
